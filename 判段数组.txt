@@ -1,0 +1,70 @@
+http://www.cnblogs.com/zichi/p/5103842.html
+
+1. ES 5 provide a method:
+
+Array.isArray();
+
+2. But IE lower version doesn't support ES5. considering using typeof:
+ 
+typeof a === 'object' && a !== null && Object.prototype.toString.call(a) !== '[object Object]' 
+
+3. How about instanceof
+
+   No
+
+   var a = [0, 1, 2];
+   console.log(a instanceof Array); ?
+   console.log(a.constructor === Array); ?
+
+   要看嵌套frame的情况。
+   每个frame都有一套自己的执行环境，跨frame实例化的对象彼此不共享原型链。  // ？ 这一段不懂
+
+4. a.sort ?
+ 
+   var a =[0, 1, 2];
+   if(a.sort){
+   
+   }
+   不可以这样判断a是否是数组，比如：
+
+   if a has a key called sort ?
+
+   var a = {sort : 'me'};
+   if(a.sort){
+   	  // array , No...
+   }
+   
+5. 正确的做法：
+   
+   var a = [1,2,3];
+
+   console.log(Object.prototye.toString.call(a) === '[object Array]') 
+
+   其他的toString() 都是object原型链上的toString（）方法。
+
+   console.log(Object.prototype.toString().call(10)) // [object Number]
+                                                'hello' //[obejct String]
+                                                true //[object Boolean]
+                                                [] // [object Array]
+                                                {} // [object Object]
+                                                function(){} // [object Function]
+                                                /a/g // [object RegExp]
+                                                null // [object Null]
+                                                undefined // [object Undefined]
+                                                new Date() // [object Date]
+
+6. Object.prototype.toString() 源代码：
+
+   when Object.prototype.toString() is called. the following steps are taken:
+
+   1. Get the [[Class]] property of the object
+   2. Compute a string value by concatenating the three strings "[object", Result, and "]"
+   3. Return Result 
+
+
+
+   So Javascript 中 判断数组的函数 可以这样写：
+
+   function isArray(obj){
+   	 return Array.isArray && Object.prototype.toString.call(obj) === '[object Array]';
+   }
