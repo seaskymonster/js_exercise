@@ -66,5 +66,5 @@ typeof a === 'object' && a !== null && Object.prototype.toString.call(a) !== '[o
    So Javascript 中 判断数组的函数 可以这样写：
 
    function isArray(obj){
-   	 return Array.isArray && Object.prototype.toString.call(obj) === '[object Array]';
+   	 return Array.isArray ? Array.isArray(obj) : Object.prototype.toString.call(obj) === '[object Array]';
    }
