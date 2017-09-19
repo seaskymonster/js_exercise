@@ -100,4 +100,4 @@ function createIndexFinder (dir, predicatedFind, sortedIndex){
 
 
 _.indexOf = createIndexFinder(1, _.findIndex, _.sortedIndex);
-_.lastIndexOf = createIndexFinder(-1, _.findLastIndex);
+_.lastIndexOf = createIndexFinder(-1, _.findLastIndex); // 我也不理解，这个是啥意思。
