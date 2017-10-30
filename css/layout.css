@@ -1,0 +1,23 @@
+1. postion:
+
+static(default) : 元素框正常生成，快级元素生成一个矩形框，作为文档流的一部分; inline element 会创建一个或多个行框，至于其父元素中。
+relative: 元素相对于之前正常文档流中的位置发生偏移，并且原先的位置仍然被占据。发生偏移的时候，可能会覆盖其他元素。
+absolute: 元素不在占有文档流位置，并且相对于包含块进行便宜（包含块就是最近一级外城元素position 不为static的元素）
+fixed: 元素不在占有文档流文职，并且相对于视窗进行定位。
+sticky： （css3 新增）
+
+2.尺寸
+
+box-sizing : content-box   or  border-box
+
+          width = content.width   or  width = content.width + padding + border
+
+
+宽度的默认属性值是auto，这个属性会使内部元素的长度自动填充满父元素的width， 但是， height 的属性值默认也是auto，为什么没有像width 一样。
+Ans: auto这个属性值是浏览器自动运算。这种自动运算，需要一个基准，一般浏览器都是允许高度滚动的，所以会导致一个问题--浏览器找不到垂直方向的基准。
+
+所以，水平居中很容易，对于block element 将margin 设置auto 就可以了，但是垂直居中就没那么简单了。
+
+
+3. 浮动
+

@@ -1,0 +1,14 @@
+介绍：
+
+JSON API是一个关于规范客户端和服务端之间交流的标准， 这些交流包括： 客户端（client）对于服务端（server）资源的读取或更改提出请求， 服务端如何回应客户端请求。
+
+JSON API这个标准的设计目的是： 最小化客户端与服务端之间的请求数量和数据传输的大小， 并且， 不损失可读性，灵活性。
+
+
+内容讨论：
+
+客户端：
+
+   客户端所有的JSON API 请求*必须*带有这个header：  Content-Type： application/vnd.api+json,而且header 里面没有其他的media 类型的参数。
+
+   所有包含JSON API media 类型的客户端， 在他们的 Accept header里*必须* 

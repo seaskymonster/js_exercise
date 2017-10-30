@@ -1,4 +1,4 @@
-Method 1： 复杂度 O(n^2)
+ Method 1： 复杂度 O(n^2)
 
 function unique (a) {
 	var res = [];
